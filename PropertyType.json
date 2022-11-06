@@ -1,0 +1,11 @@
+[
+{"model": "rentals.propertytype", "pk": 1, "fields": {"name": "Apartamentos", "status": true}},
+{"model": "rentals.propertytype", "pk": 2, "fields": {"name": "Bodegas", "status": true}},
+{"model": "rentals.propertytype", "pk": 3, "fields": {"name": "Casas", "status": true}},
+{"model": "rentals.propertytype", "pk": 4, "fields": {"name": "Condominios", "status": true}},
+{"model": "rentals.propertytype", "pk": 5, "fields": {"name": "Edicicios", "status": true}},
+{"model": "rentals.propertytype", "pk": 6, "fields": {"name": "Fincas", "status": true}},
+{"model": "rentals.propertytype", "pk": 7, "fields": {"name": "Locales Comerciales", "status": true}},
+{"model": "rentals.propertytype", "pk": 8, "fields": {"name": "Lotes y terrenos", "status": true}},
+{"model": "rentals.propertytype", "pk": 9, "fields": {"name": "Oficinas", "status": true}}
+]

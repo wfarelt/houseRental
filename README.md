@@ -26,3 +26,7 @@ https://www.librebyte.net/base-de-datos/comandos-para-administrar-postgres/
 
 # Creating A Super User In Django
 https://djangocentral.com/creating-super-user-in-django/
+
+# Dumpdata and Loaddata
+python manage.py dumpdata rentals.PropertyType > PropertyType.json
+python manage.py loaddata PropertyType.json
