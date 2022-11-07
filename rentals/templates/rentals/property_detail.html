@@ -1,0 +1,304 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<main id="main">
+    <!-- breadcrumb -->
+    <section class="intro-single">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-8">
+                    <div class="title-single-box">
+                        <h1 class="title-single">{{ property.name }}</h1>
+                        <span class="color-text-a">{{ property.address }}</span>
+                        <p class="text-info">
+                        <i class="bi bi-eye"></i>
+                        Vista:
+                        {{ property.visits }} veces
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-4">
+                    <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="/">Home</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href="property-grid.html">Properties</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                {{ property.id }}
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End breadcrumb -->
+
+    <!-- section property -->
+    <section class="property-single nav-arrow-b">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div id="property-single-carousel"
+                        class="swiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden">
+                        <div class="swiper-wrapper" id="swiper-wrapper-d11e4886853e864b" aria-live="off"
+                            style="transform: translate3d(-1392px, 0px, 0px); transition-duration: 0ms;">
+                            <div class="carousel-item-b swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active"
+                                data-swiper-slide-index="1" role="group" aria-label="2 / 2" style="width: 696px;">
+                                <img src="/media/{{ property.image}}" alt="">
+                            </div>
+                            <div class="carousel-item-b swiper-slide swiper-slide-prev swiper-slide-duplicate-next"
+                                data-swiper-slide-index="0" role="group" aria-label="1 / 2" style="width: 696px;">
+                                <img src="/media/{{ property.image}}" alt="">
+                            </div>
+                            <div class="carousel-item-b swiper-slide swiper-slide-active" data-swiper-slide-index="1"
+                                role="group" aria-label="2 / 2" style="width: 696px;">
+                                <img src="/media/{{ property.image}}" alt="">
+                            </div>
+                            <div class="carousel-item-b swiper-slide swiper-slide-duplicate swiper-slide-next swiper-slide-duplicate-prev"
+                                data-swiper-slide-index="0" role="group" aria-label="1 / 2" style="width: 696px;">
+                                <img src="/media/{{ property.image}}" alt="">
+                            </div>
+                        </div>
+                        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                    </div>
+                    <div
+                        class="property-single-carousel-pagination carousel-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
+                        <span class="swiper-pagination-bullet" tabindex="0" role="button"
+                            aria-label="Go to slide 1"></span><span
+                            class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button"
+                            aria-label="Go to slide 2" aria-current="true"></span></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <div class="row justify-content-between">
+                        <div class="col-md-5 col-lg-4">
+                            <div class="property-price d-flex justify-content-center foo">
+                                <div class="card-header-c d-flex">
+                                    <div class="card-box-ico">
+                                        <span class="bi bi-cash">Bs.</span>
+                                    </div>
+                                    <div class="card-title-c align-self-center">
+                                        <h5 class="title-c">{{ property.price }}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="property-summary">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="title-box-d section-t4">
+                                            <h3 class="title-d">Resumen rapido</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="summary-list">
+                                    <ul class="list">
+                                        <li class="d-flex justify-content-between">
+                                            <strong>ID:</strong>
+                                            <span>{{ property.id }}</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between">
+                                            <strong>Dirección:</strong>
+                                            <span>{{ property.address }}</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between">
+                                            <strong>Tipo de propiedad:</strong>
+                                            <span>{{ property.property_type.name }}</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between">
+                                            <strong>Status:</strong>
+                                            <span>{{ property.status }}</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between">
+                                            <strong>Area:</strong>
+                                            <span>{{ property.scuare_meters }}
+                                                m<sup>2</sup>
+                                            </span>
+                                        </li>
+                                        <li class="d-flex justify-content-between">
+                                            <strong>Cuartos:</strong>
+                                            <span>{{ property.rooms }}</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between">
+                                            <strong>Baños:</strong>
+                                            <span>{{ property.bathrooms }}</span>
+                                        </li>
+                                        <li class="d-flex justify-content-between">
+                                            <strong>Garaje:</strong>
+                                            <span>{{ property.garage }}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-7 col-lg-7 section-md-t3">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="title-box-d">
+                                        <h3 class="title-d">Descripción</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="property-description">
+                                <p class="description color-text-a">
+                                    {{ property.description }}
+                                </p>
+                                <p class="description color-text-a no-margin">
+                                    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec rutrum congue
+                                    leo eget
+                                    malesuada. Quisque velit nisi,
+                                    pretium ut lacinia in, elementum id enim. Donec sollicitudin molestie malesuada.
+                                </p>
+                            </div>
+                            <div class="row section-t3">
+                                <div class="col-sm-12">
+                                    <div class="title-box-d">
+                                        <h3 class="title-d">Comodidades</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="amenities-list color-text-a">
+                                <ul class="list-a no-margin">
+                                                                       
+                                    {% if conforts %}
+                                        {% for confort in conforts %}
+                                            <li>{{ confort.name }}</li>
+                                        {% endfor %}
+                                    {% else %}
+                                        <li>Básicas</li>
+                                    {% endif %}
+                                        
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- property geo_location -->
+                <div class="col-md-12">
+                    <div class="row section-t3">
+                        <div class="col-sm-12">
+                            <div class="title-box-d">
+                                <h3 class="title-d">Ubicación</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1422937950147!2d-73.98731968482413!3d40.75889497932681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes+Square!5e0!3m2!1ses-419!2sve!4v1510329142834"
+                        width="100%" height="460" frameborder="0" style="border:0" allowfullscreen="">
+                    </iframe>
+                </div>
+                <!-- end property geo_location -->
+
+                <div class="col-md-12">
+                    <div class="row section-t3">
+                        <div class="col-sm-12">
+                            <div class="title-box-d">
+                                <h3 class="title-d">Contacto</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4">
+                            <img src="{% static '/img/agent-5.jpg' %}" alt="" class="img-fluid">
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="property-agent">
+                                <h4 class="title-agent">{{ property.user.first_name }}</h4>
+                                <p class="color-text-a">
+                                    Nulla porttitor accumsan tincidunt. Vestibulum ac diam sit amet quam vehicula
+                                    elementum sed sit amet
+                                    dui. Quisque velit nisi,
+                                    pretium ut lacinia in, elementum id enim.
+                                </p>
+                                <ul class="list-unstyled">
+                                    <li class="d-flex justify-content-between">
+                                        <strong>Phone:</strong>
+                                        <span class="color-text-a">(222) 4568932</span>
+                                    </li>
+                                    <li class="d-flex justify-content-between">
+                                        <strong>Mobile:</strong>
+                                        <span class="color-text-a">777 287 378 737</span>
+                                    </li>
+                                    <li class="d-flex justify-content-between">
+                                        <strong>Email:</strong>
+                                        <span class="color-text-a">{{ property.user.email }}</span>
+                                    </li>
+                                    <li class="d-flex justify-content-between">
+                                        <strong>Skype:</strong>
+                                        <span class="color-text-a">Annabela.ge</span>
+                                    </li>
+                                </ul>
+                                <div class="socials-a">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <a href="#">
+                                                <i class="bi bi-facebook" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="#">
+                                                <i class="bi bi-twitter" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="#">
+                                                <i class="bi bi-instagram" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="#">
+                                                <i class="bi bi-linkedin" aria-hidden="true"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-4">
+                            <div class="property-contact">
+                                <form class="form-a">
+                                    <div class="row">
+                                        <div class="col-md-12 mb-1">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control form-control-lg form-control-a"
+                                                    id="inputName" placeholder="Name *" required="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-1">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control form-control-lg form-control-a"
+                                                    id="inputEmail1" placeholder="Email *" required="">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mb-1">
+                                            <div class="form-group">
+                                                <textarea id="textMessage" class="form-control" placeholder="Comment *"
+                                                    name="message" cols="45" rows="8" required=""></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mt-3">
+                                            <button type="submit" class="btn btn-a">Send Message</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/ Property Single End /-->
+
+</main>
+
+{% endblock %}

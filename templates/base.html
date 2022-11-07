@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>EstateAgency Bootstrap Template - Index</title>
+  <title>HouseRental</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -57,16 +57,16 @@
         <ul class="navbar-nav">
 
           <li class="nav-item">
-            <a class="nav-link active" href="index.html">Home</a>
+            <a class="nav-link active" href="{% url 'index' %}">Home</a>
           </li>
 
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Inmueble</a>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Inmuebles</a>
             <div class="dropdown-menu">
                             
-              {% if propertys %}
-                {% for property in propertys %}
-                <a class="dropdown-item" href="property-single.html">{{ property.name }}</a>
+              {% if property_types %}
+                {% for type in property_types %}
+                <a class="dropdown-item" href="{% url 'properties_by_type' type.id %}">{{ type.name }}</a>
                 {% endfor %}
               {% else %}
                 <a class="dropdown-item disabled" href="property-single.html">Vacio</a>
@@ -82,10 +82,17 @@
           <!-- autenficación -->
           {% if user.is_authenticated %}
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">              
               <i class="bi bi-person-circle"></i> {{ user.username }}
             </a>
             <div class="dropdown-menu">
+              <a class="dropdown-item" href="">Mi Perfil</a>
+              <a class="dropdown-item" href="">Mis Notificaciones <span class="badge bg-primary badge-number">4</span></a>
+              <a class="dropdown-item" href="">Mis Inmuebles</a>
+              <a class="dropdown-item" href="">Mis Pagos</a>
+              <a class="dropdown-item" href="">Anuncios</a>
+              <a class="dropdown-item" href="">Alquileres</a>
+              <hr>
               <a class="dropdown-item" href="{% url 'accounts:logout' %}">Cerrar Sesión</a>
             </div>
           </li>
@@ -94,7 +101,7 @@
             <a class="nav-link " href="{% url 'accounts:login' %}">Iniciar Sesión</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="{% url 'register' %}">Registrarse</a>
+            <a class="nav-link" href="{% url 'register' %}"><span class="color-b">Registrarse</i></span></a>
           </li>    
           {% endif %}
 
@@ -117,7 +124,9 @@
   {% include 'footer.html' %}
   <!-- End Footer -->
 
-
+  <!-- boton up -->
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center active"><i class="bi bi-arrow-up-short"></i></a>
+  <!-- fin boton up -->
 
   <!-- Vendor JS Files -->
   

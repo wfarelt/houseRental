@@ -22,24 +22,28 @@
         </div>
       </div>
     </div>
+    
+    {% if propertys %}    
+    
+    {% for property in propertys %}
     <div class="col-md-3">
       <div class="card-box-a card-shadow">
         <div class="img-box-a">
-          <img src="{% static '/img/property-10.jpg' %}" alt="" class="img-a img-fluid">
+          <img src="/media/{{ property.image}}" alt="" class="img-a img-fluid">
         </div>
         <div class="card-overlay">
           <div class="card-overlay-a-content">
             <div class="card-header-a">
               <h2 class="card-title-a">
-                <a href="property-single.html">204 Montal
-                  <br> South Bela Two</a>
+                <a href="property-single.html">{{property.name}}
+                  <br> <h5 style="color: white;">{{property.address}}</h5></a>
               </h2>
             </div>
             <div class="card-body-a">
               <div class="price-box d-flex">
-                <span class="price-a">rent | $ 12.000</span>
+                <span class="price-a">Alquiler | Bs. {{property.price}}</span>
               </div>
-              <a href="property-single.html" class="link-a">Click here to view
+              <a href="{% url 'property_detail' property.id %}" class="link-a">Más información
                 <span class="bi bi-chevron-right"></span>
               </a>
             </div>
@@ -47,21 +51,21 @@
               <ul class="card-info d-flex justify-content-around">
                 <li>
                   <h4 class="card-info-title">Area</h4>
-                  <span>340m
+                  <span>{{ property.scuare_meters }}
                     <sup>2</sup>
                   </span>
                 </li>
                 <li>
-                  <h4 class="card-info-title">Beds</h4>
-                  <span>2</span>
+                  <h4 class="card-info-title">Cuartos</h4>
+                  <span>{{ property.rooms }}</span>
                 </li>
                 <li>
-                  <h4 class="card-info-title">Baths</h4>
-                  <span>4</span>
+                  <h4 class="card-info-title">Baños</h4>
+                  <span>{{ property.bathrooms }}</span>
                 </li>
                 <li>
-                  <h4 class="card-info-title">Garages</h4>
-                  <span>1</span>
+                  <h4 class="card-info-title">Garajes</h4>
+                  <span>{{ property.garage }}</span>
                 </li>
               </ul>
             </div>
@@ -69,147 +73,10 @@
         </div>
       </div>
     </div>
-    <div class="col-md-3">
-      <div class="card-box-a card-shadow">
-        <div class="img-box-a">
-          <img src="{% static '/img/property-10.jpg' %}" alt="" class="img-a img-fluid">
-        </div>
-        <div class="card-overlay">
-          <div class="card-overlay-a-content">
-            <div class="card-header-a">
-              <h2 class="card-title-a">
-                <a href="property-single.html">204 Montal
-                  <br> South Bela Two</a>
-              </h2>
-            </div>
-            <div class="card-body-a">
-              <div class="price-box d-flex">
-                <span class="price-a">rent | $ 12.000</span>
-              </div>
-              <a href="property-single.html" class="link-a">Click here to view
-                <span class="bi bi-chevron-right"></span>
-              </a>
-            </div>
-            <div class="card-footer-a">
-              <ul class="card-info d-flex justify-content-around">
-                <li>
-                  <h4 class="card-info-title">Area</h4>
-                  <span>340m
-                    <sup>2</sup>
-                  </span>
-                </li>
-                <li>
-                  <h4 class="card-info-title">Beds</h4>
-                  <span>2</span>
-                </li>
-                <li>
-                  <h4 class="card-info-title">Baths</h4>
-                  <span>4</span>
-                </li>
-                <li>
-                  <h4 class="card-info-title">Garages</h4>
-                  <span>1</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="card-box-a card-shadow">
-        <div class="img-box-a">
-          <img src="{% static '/img/property-10.jpg' %}" alt="" class="img-a img-fluid">
-        </div>
-        <div class="card-overlay">
-          <div class="card-overlay-a-content">
-            <div class="card-header-a">
-              <h2 class="card-title-a">
-                <a href="property-single.html">204 Montal
-                  <br> South Bela Two</a>
-              </h2>
-            </div>
-            <div class="card-body-a">
-              <div class="price-box d-flex">
-                <span class="price-a">rent | $ 12.000</span>
-              </div>
-              <a href="property-single.html" class="link-a">Click here to view
-                <span class="bi bi-chevron-right"></span>
-              </a>
-            </div>
-            <div class="card-footer-a">
-              <ul class="card-info d-flex justify-content-around">
-                <li>
-                  <h4 class="card-info-title">Area</h4>
-                  <span>340m
-                    <sup>2</sup>
-                  </span>
-                </li>
-                <li>
-                  <h4 class="card-info-title">Beds</h4>
-                  <span>2</span>
-                </li>
-                <li>
-                  <h4 class="card-info-title">Baths</h4>
-                  <span>4</span>
-                </li>
-                <li>
-                  <h4 class="card-info-title">Garages</h4>
-                  <span>1</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3">
-      <div class="card-box-a card-shadow">
-        <div class="img-box-a">
-          <img src="{% static '/img/property-10.jpg' %}" alt="" class="img-a img-fluid">
-        </div>
-        <div class="card-overlay">
-          <div class="card-overlay-a-content">
-            <div class="card-header-a">
-              <h2 class="card-title-a">
-                <a href="property-single.html">204 Montal
-                  <br> South Bela Two</a>
-              </h2>
-            </div>
-            <div class="card-body-a">
-              <div class="price-box d-flex">
-                <span class="price-a">rent | $ 12.000</span>
-              </div>
-              <a href="property-single.html" class="link-a">Click here to view
-                <span class="bi bi-chevron-right"></span>
-              </a>
-            </div>
-            <div class="card-footer-a">
-              <ul class="card-info d-flex justify-content-around">
-                <li>
-                  <h4 class="card-info-title">Area</h4>
-                  <span>340m
-                    <sup>2</sup>
-                  </span>
-                </li>
-                <li>
-                  <h4 class="card-info-title">Beds</h4>
-                  <span>2</span>
-                </li>
-                <li>
-                  <h4 class="card-info-title">Baths</h4>
-                  <span>4</span>
-                </li>
-                <li>
-                  <h4 class="card-info-title">Garages</h4>
-                  <span>1</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    {% endfor %}
+
+    {% endif %}
+
   </div>
 </section><!-- End Latest Properties Section -->
 
@@ -230,7 +97,7 @@
         <div class="card-box-c foo">
           <div class="card-header-c d-flex">
             <div class="card-box-ico">
-              <span class="bi bi-cart"></span>
+              <span class="bi bi-house"></span>
             </div>
             <div class="card-title-c align-self-center">
               <h2 class="title-c">Casas</h2>
@@ -254,7 +121,7 @@
         <div class="card-box-c foo">
           <div class="card-header-c d-flex">
             <div class="card-box-ico">
-              <span class="bi bi-calendar4-week"></span>
+              <span class="bi bi-shop"></span>
             </div>
             <div class="card-title-c align-self-center">
               <h2 class="title-c">Tiendas</h2>
@@ -278,7 +145,7 @@
         <div class="card-box-c foo">
           <div class="card-header-c d-flex">
             <div class="card-box-ico">
-              <span class="bi bi-card-checklist"></span>
+              <span class="bi bi-hospital"></span>
             </div>
             <div class="card-title-c align-self-center">
               <h2 class="title-c">Departamentos</h2>

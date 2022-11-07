@@ -1,0 +1,12 @@
+[
+{"model": "rentals.comfort", "pk": 1, "fields": {"name": "Balcón", "status": true}},
+{"model": "rentals.comfort", "pk": 2, "fields": {"name": "Cocina", "status": true}},
+{"model": "rentals.comfort", "pk": 3, "fields": {"name": "Tv Cable", "status": true}},
+{"model": "rentals.comfort", "pk": 4, "fields": {"name": "Lavanderia", "status": true}},
+{"model": "rentals.comfort", "pk": 5, "fields": {"name": "Patio", "status": true}},
+{"model": "rentals.comfort", "pk": 6, "fields": {"name": "Camaras de seguridad", "status": true}},
+{"model": "rentals.comfort", "pk": 7, "fields": {"name": "Muebles", "status": true}},
+{"model": "rentals.comfort", "pk": 8, "fields": {"name": "Churrasquera", "status": true}},
+{"model": "rentals.comfort", "pk": 9, "fields": {"name": "Jardin", "status": true}},
+{"model": "rentals.comfort", "pk": 10, "fields": {"name": "Alarma", "status": true}}
+]
