@@ -19,10 +19,10 @@
                     <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="#">Home</a>
+                                <a href="/">Home</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                Propiedades
+                                {{ property_type }}
                             </li>
                         </ol>
                     </nav>
@@ -70,7 +70,7 @@
                                     <div class="price-box d-flex">
                                         <span class="price-a">Alquiler | Bs. {{property.price}} </span>
                                     </div>
-                                    <a href="property-single.html" class="link-a">Más información
+                                    <a href="{% url 'property_detail' property.id %}" class="link-a">Más información
                                         <span class="bi bi-chevron-right"></span>
                                     </a>
                                 </div>

@@ -30,3 +30,6 @@ https://djangocentral.com/creating-super-user-in-django/
 # Dumpdata and Loaddata
 python manage.py dumpdata rentals.PropertyType > PropertyType.json
 python manage.py loaddata PropertyType.json
+
+# Bootstrap example
+https://bootstrapmade.com/demo/NiceAdmin/

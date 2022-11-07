@@ -26,7 +26,7 @@
                                 <a href="/">Home</a>
                             </li>
                             <li class="breadcrumb-item">
-                                <a href="property-grid.html">Properties</a>
+                                <a href="{% url 'properties_by_type' property.property_type.id %}">{{property.property_type.name}}</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
                                 {{ property.id }}
@@ -151,12 +151,6 @@
                                 <p class="description color-text-a">
                                     {{ property.description }}
                                 </p>
-                                <p class="description color-text-a no-margin">
-                                    Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec rutrum congue
-                                    leo eget
-                                    malesuada. Quisque velit nisi,
-                                    pretium ut lacinia in, elementum id enim. Donec sollicitudin molestie malesuada.
-                                </p>
                             </div>
                             <div class="row section-t3">
                                 <div class="col-sm-12">
@@ -166,17 +160,22 @@
                                 </div>
                             </div>
                             <div class="amenities-list color-text-a">
-                                <ul class="list-a no-margin">
+                                <div class="row">
+                                    <ul class="list-a">
                                                                        
-                                    {% if conforts %}
-                                        {% for confort in conforts %}
-                                            <li>{{ confort.name }}</li>
-                                        {% endfor %}
-                                    {% else %}
-                                        <li>Básicas</li>
-                                    {% endif %}
-                                        
-                                </ul>
+                                        {% if conforts %}
+                                            {% for confort in conforts %}
+                                                
+                                                    <li class="ml-3" style="width: 30%;">{{ confort.name }}</li>    
+                                                
+                                            {% endfor %}
+                                        {% else %}
+                                            <li>Básicas</li>
+                                        {% endif %}
+                                            
+                                    </ul>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
