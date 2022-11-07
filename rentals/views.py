@@ -11,7 +11,7 @@ from django.contrib.auth.views import LoginView
 
 def index(request):
     property_types = PropertyType.objects.filter(status=True)
-    propertys = Property.objects.filter(status='1')
+    propertys = Property.objects.filter(status='1', visits__gte=1).order_by('-visits')[:4]
     context = { 'property_types' : property_types, 'propertys' : propertys }
     return render(request, 'rentals/index.html', context )
 
@@ -43,5 +43,9 @@ def properties_by_type(request, pk):
     context = { 'property_types' : property_types, 'propertys' : propertys, 'property_type' : property_type }
     return render(request, 'rentals/properties_by_type.html', context )
     
-
+class PropertyCreateView(CreateView):
+    model = Property
+    template_name = 'rentals/property_create.html'
+    fields = '__all__'
+    success_url = reverse_lazy('index')
     
