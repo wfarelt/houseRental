@@ -87,11 +87,13 @@
             </a>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="">Mi Perfil</a>
-              <a class="dropdown-item" href="">Mis Notificaciones <span class="badge bg-primary badge-number">4</span></a>
-              <a class="dropdown-item" href="">Mis Inmuebles</a>
-              <a class="dropdown-item" href="">Mis Pagos</a>
-              <a class="dropdown-item" href="{% url 'property_create' %}">Nuevo Inmueble</a>
-              <a class="dropdown-item" href="">Alquileres</a>
+              <hr>
+              <!--<a class="dropdown-item" href="">Mis Notificaciones <span class="badge bg-primary badge-number">4</span></a>-->
+              <a class="dropdown-item" href="{% url 'property_list' %}">Mis Publicaciones</a>
+              <a class="dropdown-item" href="{% url 'property_create' %}">Nueva publicación</a>
+              <!--<a class="dropdown-item" href="">Mis Pagos</a>-->
+              
+              <!--<a class="dropdown-item" href="">Alquileres</a>-->
               <hr>
               <a class="dropdown-item" href="{% url 'accounts:logout' %}">Cerrar Sesión</a>
             </div>

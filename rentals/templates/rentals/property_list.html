@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+{% endblock %}
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }}" role="alert">
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+
+<main id="main" style="margin-top: 150px;">
+    <section class="section" >
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Mis Publicaciones</h5>
+                <table class="table table-hover" id="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Fecha de publicación</th>
+                            <th scope="col">Titulo</th>
+                            <th scope="col">Visto</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        {% for property in propertys %}
+                        <tr>
+                            <th scope="row">{{property.id}}</th>
+                            <td>{{property.created|date:"d/m/Y"}}</td>
+                            <td>{{property.name}}</td>
+                            <td>{{property.visits}}</td>
+                            <td>
+                                
+                                {% if property.status == '1' %}
+                                    DISPONIBLE 
+                                {% else %}
+                                    {% if property.status == '2' %}
+                                        ALQUILADO
+                                    {% else %}
+                                        {% if property.status == '3' %}
+                                            RESERVADO
+                                        {% else %}
+                                            MANTENIMIENTO
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}        
+                                
+                            </td>
+                            <td class="text-center">
+                                <a href="{% url 'property_detail' property.id %}" class="btn btn-info btn-sm"><i class="bi bi-eye"style="color:white;" ></i></a>
+                            </td>
+                        </tr>    
+                        {% endfor %}                       
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </section>
+</main>
+
+{% endblock content %}
+
+{% block js %}
+
+<!--<script src="https://code.jquery.com/jquery-3.5.1.js"></script>-->
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#table').DataTable({
+            'language': {
+                'url': '//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json'
+            },
+            'info': false,
+            'lengthChange': false,
+            'pageLength': 5,
+        
+        });
+    });
+</script>
+    
+{% endblock js %}
+    
