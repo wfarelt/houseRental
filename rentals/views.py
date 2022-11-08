@@ -4,6 +4,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from django.contrib.auth.forms import UserCreationForm
 
 from .models import PropertyType, Property
+from .forms import PropertyForm
 
 from django.contrib.auth.views import LoginView
 
@@ -46,6 +47,11 @@ def properties_by_type(request, pk):
 class PropertyCreateView(CreateView):
     model = Property
     template_name = 'rentals/property_create.html'
-    fields = '__all__'
+    form_class = PropertyForm
+    success_message: str = "Sub-Categoria Creada"
     success_url = reverse_lazy('index')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
     
