@@ -1,7 +1,8 @@
 from django.urls import path, include
 
 from .views import index, UserCreateView, LoginView, property_detail, properties_by_type, \
-    PropertyCreateView, properties_by_id
+    PropertyCreateView, properties_by_id, PropertyCreateView,ContactCreateView    
+
 
 urlpatterns = [
     path('', index, name='index'),
@@ -12,5 +13,6 @@ urlpatterns = [
     path('property_type/<int:pk>', properties_by_type, name='properties_by_type'),
     path('property_create/', PropertyCreateView.as_view(), name='property_create'),
     path('property_list/', properties_by_id, name='property_list'),
-    
+    path('contact/',ContactCreateView.as_view() , name='contacto'),
+
 ]

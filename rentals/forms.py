@@ -1,7 +1,10 @@
-from django import forms
-from .models import Property
+from django.forms import *
+from .models import Property, Contact
 
-class PropertyForm(forms.ModelForm):
+
+
+
+class PropertyForm(ModelForm):
     class Meta:
         model = Property
         exclude=['created', 'visits', 'user', 'status']
@@ -28,3 +31,34 @@ class PropertyForm(forms.ModelForm):
             })
         self.fields['property_type'].empty_label = "Seleccione una opción"
         self.fields['pets'].widget.attrs.update({'class': 'form-check-input ml-2'})
+
+class ContactoForm (ModelForm):
+    class Meta:
+        model = Contact
+        fields ='__all__'
+        labels ={
+             'Name':'descripcion'
+        }
+        widgets={
+            'name':TextInput(
+                attrs={
+                    'class':'form-control',
+                    'placeholder':'Ingrese su nombre'
+                }
+            ),
+             'email':TextInput(
+                attrs={
+                    'class':'form-control',
+                    'placeholder':'Ingrese su correo electronico'
+                }
+            ),
+             'mensaje':Textarea(
+                attrs={
+                    'class':'form-control',
+                    'placeholder':'Ingrese su consulta',
+                    'rows':3,
+                    'cols':3
+                }
+            )
+            
+        }

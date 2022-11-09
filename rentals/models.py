@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 # Create your models here.
 
 # MODELO TIPO DE PROPIEDAD
@@ -57,7 +58,7 @@ class Property(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     visits = models.IntegerField(default=0)
     created = models.DateTimeField(auto_now_add=True)
-    confort = models.ManyToManyField(Comfort, blank=True, null=True)
+    confort = models.ManyToManyField(Comfort, blank=True)
 
     def __str__(self):
         return self.name
@@ -70,5 +71,28 @@ class Property(models.Model):
     def visits_count(self):
         self.visits += 1
         self.save()
+
+# MODELO CONTACTO
+
+class Contact(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.EmailField()
+   
+    mensaje =models.TextField(max_length=500)
+    avisos = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.name
+    class Meta:
+        verbose_name = "Contacto"
+        verbose_name_plural = "Contactos"
+        ordering = ['name']
+    
+
+# MODELO PERFIL DE USUARIO        
+
+
+
+# MODELO USUARIO
 
 
