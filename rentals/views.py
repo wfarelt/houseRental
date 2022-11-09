@@ -3,9 +3,12 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.forms import UserCreationForm
 
-from .models import PropertyType, Property
+from .models import PropertyType, Property,Contact
 
 from django.contrib.auth.views import LoginView
+from .forms import ContactoForm
+from django.http import HttpResponse
+
 
 # Create your views here.
 
@@ -48,4 +51,17 @@ class PropertyCreateView(CreateView):
     template_name = 'rentals/property_create.html'
     fields = '__all__'
     success_url = reverse_lazy('index')
-    
+
+
+
+#def contacto(request):
+class ContactCreateView(CreateView):
+    model = Contact
+    form_class=ContactoForm
+    template_name = 'rentals/contact.html'
+   
+    success_url = reverse_lazy('index')
+   
+
+def myfirstView(request):
+    return HttpResponse("hola mundo")    

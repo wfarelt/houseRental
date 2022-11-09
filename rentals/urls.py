@@ -1,8 +1,8 @@
 from django.urls import path, include
 
 from .views import index, UserCreateView, LoginView, property_detail, properties_by_type, \
-    PropertyCreateView
-
+    PropertyCreateView,ContactCreateView    
+from rentals.views import myfirstView
 urlpatterns = [
     path('', index, name='index'),
     path("accounts/", include(("django.contrib.auth.urls",'accounts'), namespace='accounts')),
@@ -11,4 +11,7 @@ urlpatterns = [
     path('property/<int:pk>', property_detail, name='property_detail'),
     path('property_type/<int:pk>', properties_by_type, name='properties_by_type'),
     path('property_create/', PropertyCreateView.as_view(), name='property_create'),
+    path('contact/',ContactCreateView.as_view() , name='contacto'),
+
+    
 ]
